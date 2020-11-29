@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="retour()">Retour</ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Photo Détail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="container-fluid">
+  <ion-card>
+    <img [src]="photo?.download_url" alt="" />
+    <ion-card-content>
+      <ion-card-title>
+        {{photo?.author}}
+      </ion-card-title>
+      <p class="p-detail">
+        <span>width:</span> {{photo?.width}}<br>
+        <span>height:</span> {{photo?.height}}<br>
+        <span>url:</span> {{photo?.url}}<br>
+        <span>download_url:</span> {{photo?.download_url}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title class="text-center">Liste des photos</ion-title>
+  </ion-toolbar>
+  <ion-searchbar animated (ionChange)="onSearchImages($event)" placeholder="Recherche..."></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-fluid mt-3">
+    <div class="row py-3 liste-photo" *ngFor="let i of photo">
+      <div class="col-5">
+        <div (click)="detailPhoto(i.id)">
+          <img [src]="i.download_url" alt="" class="img-fluid" alt="" *ngIf="photo.length" />
+        </div>
+      </div>
+      <div class="col-7 d-flex align-items-center">
+        <h4 class="h4-author">{{i.author}}</h4>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)" *ngIf="show">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

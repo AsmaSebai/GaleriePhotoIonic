@@ -8,14 +8,14 @@
 <ion-content>
   <div class="container-fluid mt-3">
     <div class="row py-3 liste-photo" *ngFor="let i of photo">
+      <div (click)="detailPhoto(i.id)" class="d-flex">
       <div class="col-5">
-        <div (click)="detailPhoto(i.id)">
-          <img [src]="i.download_url" alt="" class="img-fluid" alt="" *ngIf="photo.length" />
-        </div>
+               <img [src]="i.download_url" alt="" class="img-fluid" alt="" *ngIf="photo.length" />
       </div>
       <div class="col-7 d-flex align-items-center">
         <h4 class="h4-author">{{i.author}}</h4>
       </div>
+    </div>
     </div>
   </div>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)" *ngIf="show">

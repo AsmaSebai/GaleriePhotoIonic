@@ -49,7 +49,6 @@ export class PhotoListePage implements OnInit {
     this.router.navigate(['photo-liste/photo-detail/' + id])
     this.show = true
     this.id = id;
-    console.log(id);
   }
 
   onSearchImages(ev: any, infiniteScroll) {
